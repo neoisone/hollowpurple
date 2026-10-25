@@ -15,7 +15,7 @@ winget install --id astral-sh.uv -e
 winget install --id Git.Git -e
 ```
 
-Reopen PowerShell. Clone this private repository using an account with access, then run from its root:
+Reopen PowerShell. Clone this public repository, then run from its root:
 
 ```powershell
 git clone https://github.com/neoisone/hollowpurple.git

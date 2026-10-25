@@ -70,7 +70,7 @@ Sources: [uv installation](https://docs.astral.sh/uv/getting-started/installatio
 
 ### Clone and inspect
 
-The private repository requires an account with access:
+The repository is public and can be cloned without account access:
 
 ```powershell
 git clone https://github.com/neoisone/hollowpurple.git
