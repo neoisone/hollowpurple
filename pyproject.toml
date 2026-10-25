@@ -7,3 +7,4 @@ dependencies = ["mcp-for-blender==2.1.9"]
 
 [tool.uv]
 package = false
+python-preference = "only-managed"

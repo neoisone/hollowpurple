@@ -1,4 +1,8 @@
 import json
+import os
+import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -6,7 +10,7 @@ from types import SimpleNamespace
 from unittest.mock import patch
 
 from pipeline.setup_windows import configure_code, merge_desktop_config, server_entry, reject_package_addons
-from pipeline.runtime import parse_blender_report, tool_text
+from pipeline.runtime import SERVER_ARGS, SERVER_ENV, parse_blender_report, tool_text
 from pipeline.configure_gpu import select_devices
 
 
@@ -40,6 +44,15 @@ class ConfigTests(unittest.TestCase):
         self.assertTrue(project.is_absolute())
         self.assertTrue((project / 'uv.lock').is_file())
         self.assertEqual(args[-1], 'mcp-for-blender')
+
+    def test_setup_and_mcp_launcher_use_the_same_python_installation(self):
+        uv = shutil.which('uv')
+        self.assertIsNotNone(uv, 'Run the tests under uv as documented')
+        result = subprocess.run(
+            [uv, *SERVER_ARGS[:-1], 'python', '-c', 'import sys; print(sys.base_prefix)'],
+            cwd=self.temp.name, env={**os.environ, **SERVER_ENV},
+            capture_output=True, text=True, check=True, timeout=90)
+        self.assertEqual(Path(result.stdout.strip()).resolve(), Path(sys.base_prefix).resolve())
 
     def test_second_apply_is_idempotent(self):
         merge_desktop_config(self.path, self.entry, apply=True)

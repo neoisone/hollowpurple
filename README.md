@@ -39,6 +39,8 @@ uv run --frozen python -m pipeline.setup_windows --client desktop --blender "C:\
 
 The installer backs up changed configuration, preserves unrelated servers and refuses to replace a different `blender` entry unless `--replace-existing` is supplied deliberately. A non-5.2 Blender version requires `--allow-version-mismatch` and compatibility checks.
 
+The project and MCP launcher both require uv-managed Python. If updating an earlier checkout, close Claude before `git pull` and `uv sync --frozen --python 3.11`, then reopen it. This prevents Windows from trying to replace an environment that a live process is using.
+
 ## Verify the connection and GPU
 
 Open **Blender with its normal GUI**. Confirm MCP for Blender is enabled in Preferences and its sidebar listener is running on port **9876**. Fully restart the selected Claude client.
