@@ -9,13 +9,19 @@ PROTOCOL = 13
 PYTHON = '3.11'
 SERVER_ARGS = ['run', '--frozen', '--project', str(Path(__file__).resolve().parents[1]),
                '--python', PYTHON, 'mcp-for-blender']
-SERVER_ENV = {
-    'UV_PYTHON_PREFERENCE': 'only-managed',
-    'BLENDER_HOST': 'localhost',
-    'BLENDER_PORT': '9876',
-    'DISABLE_TELEMETRY': '1',
-}
 MARKER = 'HOLLOWPURPLE_RESULT '
+
+
+def server_environment():
+    env = {
+        'UV_PYTHON_PREFERENCE': 'only-managed',
+        'BLENDER_HOST': 'localhost',
+        'BLENDER_PORT': '9876',
+        'DISABLE_TELEMETRY': '1',
+    }
+    if location := os.environ.get('UV_PYTHON_INSTALL_DIR'):
+        env['UV_PYTHON_INSTALL_DIR'] = str(Path(location).expanduser().resolve())
+    return env
 
 
 def parse_blender_report(stdout):

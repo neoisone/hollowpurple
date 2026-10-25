@@ -20,13 +20,13 @@ from blender_mcp.setup_cli import (
     safe_to_save_prefs,
 )
 
-from .runtime import SERVER_ARGS, SERVER_ENV, run_blender, script_path
+from .runtime import SERVER_ARGS, server_environment, run_blender, script_path
 
 ADDON_SHA256 = 'eb0facf69781a30e69792532087d8d41c6a14fcd323353250abe7988ee297fa5'
 
 
 def server_entry(uv):
-    return {'command': str(uv), 'args': list(SERVER_ARGS), 'env': dict(SERVER_ENV)}
+    return {'command': str(uv), 'args': list(SERVER_ARGS), 'env': server_environment()}
 
 
 def reject_package_addons(addons):

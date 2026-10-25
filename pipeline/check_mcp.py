@@ -11,13 +11,13 @@ from datetime import timedelta
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
-from .runtime import PROTOCOL, SERVER_ARGS, SERVER_ENV, script_path, tool_text
+from .runtime import PROTOCOL, SERVER_ARGS, server_environment, script_path, tool_text
 
 
 async def check(uv, configure_gpu=False):
     with socket.create_connection(('127.0.0.1', 9876), timeout=3):
         pass
-    parameters = StdioServerParameters(command=uv, args=SERVER_ARGS, env=SERVER_ENV)
+    parameters = StdioServerParameters(command=uv, args=SERVER_ARGS, env=server_environment())
     async with stdio_client(parameters) as streams:
         async with ClientSession(*streams, read_timeout_seconds=timedelta(seconds=60)) as session:
             await session.initialize()
