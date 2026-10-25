@@ -1,0 +1,60 @@
+{
+  "purpose": "Optional historical references; not setup dependencies",
+  "repositories": [
+    {
+      "name": "AI4Animation",
+      "url": "https://github.com/sebastianstarke/AI4Animation.git",
+      "commit": "98aff6c87d73e4af0cbf50df2586f58532475662"
+    },
+    {
+      "name": "DeepMimic",
+      "url": "https://github.com/xbpeng/DeepMimic.git",
+      "commit": "1f915c52fcd4b95b5f5f15b759ae91bd81e9a801"
+    },
+    {
+      "name": "Effekseer",
+      "url": "https://github.com/effekseer/Effekseer.git",
+      "commit": "82b37081a302b9f9eff0bf14dc6c845fca8c3c54"
+    },
+    {
+      "name": "HY-Motion-1.0",
+      "url": "https://github.com/Tencent-Hunyuan/HY-Motion-1.0.git",
+      "commit": "4e426f5a1021cbcf7f375458c37b840ee7225229"
+    },
+    {
+      "name": "MB-Lab",
+      "url": "https://github.com/animate1978/MB-Lab.git",
+      "commit": "063bff04e60f3e7c651fda628c30f5d83f3f3078"
+    },
+    {
+      "name": "TRELLIS",
+      "url": "https://github.com/microsoft/TRELLIS.git",
+      "commit": "442aa1e1afb9014e80681d3bf604e8d728a86ee7"
+    },
+    {
+      "name": "UniRig",
+      "url": "https://github.com/VAST-AI-Research/UniRig.git",
+      "commit": "6793c6640ff01c8fb389f3993434124bb43d2933"
+    },
+    {
+      "name": "freemocap",
+      "url": "https://github.com/freemocap/freemocap.git",
+      "commit": "75c8acc2cd7fa486ee674021473be4b95b7be2cb"
+    },
+    {
+      "name": "motion-diffusion-model",
+      "url": "https://github.com/GuyTevet/motion-diffusion-model.git",
+      "commit": "ef8edce6a53c6ab19e53b4d4dcf15bc0bc60a778"
+    },
+    {
+      "name": "mpfb2",
+      "url": "https://github.com/makehumancommunity/mpfb2.git",
+      "commit": "3af0cd5a2ffba072e93a34e5f6f494fdc4813ddf"
+    },
+    {
+      "name": "openvdb",
+      "url": "https://github.com/AcademySoftwareFoundation/openvdb.git",
+      "commit": "84dca76d5759b0ca8d4d30aa473437630a357c4f"
+    }
+  ]
+}
